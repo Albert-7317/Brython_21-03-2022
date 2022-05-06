@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="brython.js"></script>
+    <script src="brython_stdlib.js"></script>
+    <title>Testing</title>
+</head>
+<body onload="brython()">
+    <script type="text/python">
+        from browser import document, html
+        import math
+
+        canvas = document["zone8"]
+        ctx = canvas.getContext("2d")
+
+        x = 20
+
+        def draw(event):
+            global x
+            ctx.beginPath()
+            ctx.arc(x, 25, 15, 0, 2 * math.pi)
+            x += 15
+            ctx.stroke()
+
+        document["button8"].bind("click", draw)
+    </script>
+</body>
+</html>
